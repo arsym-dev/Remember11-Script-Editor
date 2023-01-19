@@ -26,3 +26,6 @@ Precompiled binaries can be found in [Releases](https://github.com/arsym-dev/Rem
 - Add, remove and change any command anywhere in the script
 - Search the script for text in English or Japanese
 - Quickly translate the text using Google, Bing, or DeepL.
+
+## Related
+Exormeter modified this to create the [12Riven Script Editor](https://github.com/Exormeter/12Riven_ScriptEditor)
