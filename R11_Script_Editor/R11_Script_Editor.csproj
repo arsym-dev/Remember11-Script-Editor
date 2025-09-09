@@ -105,8 +105,6 @@
     <Compile Include="Tokens\TokenEffectEx.cs" />
     <Compile Include="Tokens\TokenClockDisp.cs" />
     <Compile Include="Tokens\TokenBreathLock.cs" />
-    <Compile Include="Tokens\TokenGraphDisp3.cs" />
-    <Compile Include="Tokens\TokenGraphDisp2.cs" />
     <Compile Include="Tokens\TokenMovieEnd.cs" />
     <Compile Include="Tokens\TokenEyeLock.cs" />
     <Compile Include="Tokens\TokenKeyLock.cs" />

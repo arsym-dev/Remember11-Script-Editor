@@ -75,8 +75,6 @@ namespace R11_Script_Editor
             TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("FileRead"));
             TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("FileWait"));
             TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("GraphDisp"));
-            TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("GraphDisp2"));
-            TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("GraphDisp3"));
             TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("GraphPosAuto"));
             TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("GraphPosSave"));
             TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("GraphScaleAuto"));
