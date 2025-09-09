@@ -6,15 +6,26 @@ namespace R11_Script_Editor.Tokens
     class TokenGraphDisp : Token
     {
         public new const TokenType Type = TokenType.graph_disp;
-        
+
         byte num_entries;
         public List<GraphDispEntry> Entries = new List<GraphDispEntry>();
 
-        public TokenGraphDisp(bool blank=false)
+        public TokenGraphDisp(bool blank = false)
         {
             _command = "Graph Disp";
-            _description = "Display an image or sprite";
-            
+            _description = "Display an image or sprite" +
+                "\n\nFile Number Start Ranges:" +
+                "\n12289: Kokoro Start" +
+                "\n12377: Satoru Start" +
+                "\n12509: Mayuzumi Start" +
+                "\n12597: Yomogi Start" +
+                "\n12685: Kali Start" +
+                "\n12817: Keiko Start" +
+                "\n12949: Yuni Start" +
+                "\n13086: Hotori Start" +
+                "\n13122: Yukidoh Start" +
+                "\n13194: Sayaka Start";
+
 
             if (blank)
             {
