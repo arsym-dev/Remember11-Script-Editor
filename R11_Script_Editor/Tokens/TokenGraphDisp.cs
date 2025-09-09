@@ -29,16 +29,8 @@ namespace R11_Script_Editor.Tokens
 
             if (blank)
             {
-                num_entries = 1;
-                Entries.Add(new GraphDispEntry()
-                {
-                    ImageNumber = 256,
-                    Unknown2 = 7935,
-                    FileDescription = 4096,
-                    Unknown3 = 0,
-                    DrawX = 0,
-                    DrawY = 0
-                });
+                num_entries = 0;
+                AddItem(0);
             }
             else
             {
@@ -59,6 +51,33 @@ namespace R11_Script_Editor.Tokens
             }
 
             UpdateData();
+        }
+
+        public override void AddItem(int index)
+        {
+            num_entries += 1;
+            Entries.Add(new GraphDispEntry()
+            {
+                ImageNumber = 256,
+                Unknown2 = 7935,
+                FileDescription = 4096,
+                Unknown3 = 0,
+                DrawX = 0,
+                DrawY = 0
+            });
+            UpdateData();
+            UpdateGui();
+        }
+
+        public override void RemoveItem(int index)
+        {
+            if (Entries.Count > 1)
+            {
+                num_entries -= 1;
+                Entries.RemoveAt(index);
+                UpdateData();
+                UpdateGui();
+            }
         }
 
         public override void UpdateData()

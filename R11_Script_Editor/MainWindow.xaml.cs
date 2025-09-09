@@ -303,6 +303,24 @@ namespace R11_Script_Editor
             }
         }
 
+        private void AddEntry(object sender, RoutedEventArgs e)
+        {
+            if (ListView1.SelectedIndex > -1 && listviewEntries.SelectedIndex > -1)
+            {
+                var token = ListView1.SelectedItem as Token;
+                token.AddItem(listviewEntries.SelectedIndex);
+            }
+        }
+
+        private void DeleteEntry(object sender, RoutedEventArgs e)
+        {
+            if (ListView1.SelectedIndex > -1 && listviewEntries.SelectedIndex > -1)
+            {
+                var token = ListView1.SelectedItem as Token;
+                token.RemoveItem(listviewEntries.SelectedIndex);
+            }
+        }
+
         private void AddFadeToBlack(object sender, RoutedEventArgs e)
         {
             if (ListView1.SelectedIndex > -1)

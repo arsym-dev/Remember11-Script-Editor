@@ -122,6 +122,9 @@ namespace R11_Script_Editor.Tokens
             UpdateGui(true);
         }
 
+        public virtual void AddItem(int index) { }
+        public virtual void RemoveItem(int index) { }
+
         public virtual void UpdateGui(bool clear_list)
         {
             Tokenizer.Grid.Children.Clear();
