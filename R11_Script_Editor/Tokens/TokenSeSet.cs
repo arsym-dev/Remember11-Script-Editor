@@ -9,7 +9,7 @@ namespace R11_Script_Editor.Tokens
         
         public byte Channel { get; set; }
 
-        public TokenSeSet()
+        public TokenSeSet(bool blank = false)
         {
             _command = "SE Set";
             _description = "Set sound effect to a specified channel";

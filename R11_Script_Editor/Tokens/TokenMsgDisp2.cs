@@ -52,7 +52,7 @@ namespace R11_Script_Editor.Tokens
                 CompleteMessage = "Message%K%P";
 
                 MsgId = 0;
-                VoiceId = 0;
+                VoiceId = 65535;
                 SpeakerId = MsgSpeaker.Narrator;
             }
             else

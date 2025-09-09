@@ -16,7 +16,7 @@ namespace R11_Script_Editor.Tokens
         public UInt16 Unknown7 { get; set; }
         public UInt16 Unknown8 { get; set; }
 
-        public TokenGraphScaleAuto()
+        public TokenGraphScaleAuto(bool blank = false)
         {
             _command = "Graph Scale Auto";
             _description = "[Undocumented]";

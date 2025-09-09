@@ -16,7 +16,7 @@ namespace R11_Script_Editor.Tokens
         public UInt16 TotalTicks { get; set; }
         public UInt16 ImageNumber { get; set; }
 
-        public TokenGraphUvAuto()
+        public TokenGraphUvAuto(bool blank = false)
         {
             _command = "Graph UV Auto";
             _description = "Automatically change from current crop to target crop. 60 ticks = 1 second";

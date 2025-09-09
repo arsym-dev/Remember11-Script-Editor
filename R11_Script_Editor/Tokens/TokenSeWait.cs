@@ -10,7 +10,7 @@ namespace R11_Script_Editor.Tokens
         public byte Channel { get; set; }
         public UInt16 Delay { get; set; }
 
-        public TokenSeWait()
+        public TokenSeWait(bool blank = false)
         {
             _command = "SE Wait";
             _description = "Wait for sound effect";

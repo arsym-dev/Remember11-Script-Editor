@@ -9,7 +9,7 @@ namespace R11_Script_Editor.Tokens
         
         public byte ImageNumber { get; set; }
 
-        public TokenGraphPosSave()
+        public TokenGraphPosSave(bool blank = false)
         {
             _command = "Graph Pos Save";
             _description = "[Undocumented]";

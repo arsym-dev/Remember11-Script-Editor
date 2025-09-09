@@ -10,7 +10,7 @@ namespace R11_Script_Editor.Tokens
         byte fixed1;
         UInt16 fixed2;
 
-        public TokenBgmSet()
+        public TokenBgmSet(bool blank = false)
         {
             _command = "BGM Set";
             _description = "[Undocumented]";

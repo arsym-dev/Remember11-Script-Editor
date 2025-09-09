@@ -9,7 +9,7 @@ namespace R11_Script_Editor.Tokens
         
         public byte Value { get; set; }
 
-        public TokenGraphUvSave()
+        public TokenGraphUvSave(bool blank = false)
         {
             _command = "Graph UV Save";
             _description = "[Undocumented]";
