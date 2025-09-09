@@ -9,7 +9,7 @@ namespace R11_Script_Editor.Tokens
 
         public MsgMode Value { get; set; }
 
-        public TokenMsgMode()
+        public TokenMsgMode(bool blank = false)
         {
             _command = "Msg Mode";
             _description = "Change between ADV and NVL";

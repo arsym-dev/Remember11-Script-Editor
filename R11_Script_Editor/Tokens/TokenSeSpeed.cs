@@ -10,7 +10,7 @@ namespace R11_Script_Editor.Tokens
         public byte Channel { get; set; }
         public UInt16 Speed { get; set; }
 
-        public TokenSeSpeed()
+        public TokenSeSpeed(bool blank = false)
         {
             _command = "SE Speed";
             _description = "Set sound effect speed";

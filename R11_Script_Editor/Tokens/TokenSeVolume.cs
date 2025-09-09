@@ -10,7 +10,7 @@ namespace R11_Script_Editor.Tokens
         public byte Channel { get; set; }
         public UInt16 Volume { get; set; }
 
-        public TokenSeVolume()
+        public TokenSeVolume(bool blank = false)
         {
             _command = "SE Volume";
             _description = "Set sound effect volume";

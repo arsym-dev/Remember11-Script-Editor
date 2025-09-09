@@ -75,17 +75,31 @@ namespace R11_Script_Editor
             TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("FileRead"));
             TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("FileWait"));
             TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("GraphDisp"));
+            TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("GraphPosAuto"));
+            TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("GraphPosSave"));
+            TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("GraphScaleAuto"));
+            TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("GraphUvAuto"));
+            TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("GraphUvSave"));
             TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("GraphDispEx"));
             TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("If"));
             TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("InternalGoto"));
             TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("MsgDisp2"));
             TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("MsgType"));
             TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("MsgView"));
+            TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("MsgMode"));
             TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("QuickSave"));
             TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("RegCalc"));
             TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("SelectDisp2"));
             TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("SystemMsg"));
             TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("TimeWait"));
+            TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("TitleDisplay"));
+            TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("MoviePlay"));
+            TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("SeSpeed"));
+            TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("SeVolume"));
+            TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("SeSet"));
+            TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("SeReq"));
+            TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("SeWait"));
+            TokenSelectorComboBox.Items.Add(new TokenSelectorComboBoxItem("BgmSet"));
 
 
             BrowseInputFolder(null, null);
@@ -700,6 +714,11 @@ namespace R11_Script_Editor
                 ListView1.ContextMenu = m;
             else
                 ListView1.ContextMenu = null;
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 

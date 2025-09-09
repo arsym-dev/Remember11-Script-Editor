@@ -9,7 +9,7 @@ namespace R11_Script_Editor.Tokens
         
         public byte Value { get; set; }
 
-        public TokenMoviePlay()
+        public TokenMoviePlay(bool blank = false)
         {
             _command = "Movie Play";
             _description = "Play specified movie";

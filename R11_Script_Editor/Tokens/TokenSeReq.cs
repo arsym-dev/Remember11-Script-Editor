@@ -10,7 +10,7 @@ namespace R11_Script_Editor.Tokens
         public byte Channel { get; set; }
         public UInt16 Unknown1 { get; set; }
 
-        public TokenSeReq()
+        public TokenSeReq(bool blank = false)
         {
             _command = "SE Req";
             _description = "[Undocumented]";

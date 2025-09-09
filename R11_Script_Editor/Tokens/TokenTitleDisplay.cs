@@ -9,7 +9,7 @@ namespace R11_Script_Editor.Tokens
         
         public byte Value { get; set; }
 
-        public TokenTitleDisplay()
+        public TokenTitleDisplay(bool blank = false)
         {
             _command = "Title Display";
             _description = "Display title of scene";

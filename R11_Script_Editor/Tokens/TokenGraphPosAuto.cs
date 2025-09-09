@@ -14,7 +14,7 @@ namespace R11_Script_Editor.Tokens
         public UInt16 Unknown5 { get; set; }
         public UInt16 Unknown6 { get; set; }
 
-        public TokenGraphPosAuto()
+        public TokenGraphPosAuto(bool blank = false)
         {
             _command = "Graph Pos Auto";
             _description = "[Undocumented]";
