@@ -296,7 +296,6 @@ namespace R11_Script_Editor.Tokens
             {0xa055, "~Fingers cut off BAD - Bio BAD Local"},
             {0xa056, "~Roll BAD - Bio BAD Local"},
             {0xa057, "UV Service Flag 6"},
-            {0xa058, "SELF FLAG"},
 
             {0x000, "~Playthroughs"},
             {0x001, "~Mayuzumi Stress Level - Bio"},
@@ -639,7 +638,7 @@ namespace R11_Script_Editor.Tokens
             {0x130, "Satoru Chapter"},
             {0x131, "More Remember"},
             {0x132, "Satoru Chapter"},
-            {0x133, "Where Is \"Self\"?"},
+            {0x133, "Where Is \"Self\"?"}
         };
         static public Dictionary<int, string> EvTitles = new Dictionary<int, string>()
         {
@@ -1016,9 +1015,6 @@ namespace R11_Script_Editor.Tokens
             {0x00a8, "DBG_SE"},
             {0x00a9, "DBG_MAC"},
             {0x00aa, "DBG_EFT"},
-            {0x00ab, "SELF_A_101"},
-            {0x00ac, "SELF_A_102"},
-            {0x00ad, "SELF_A_103"},
 
             {0x1000, "BG_00"},
             {0x1001, "BG_01"},
@@ -1666,7 +1662,6 @@ namespace R11_Script_Editor.Tokens
             {0x209b, "EV_MVED2"},
             {0x209c, "EV_MVED3"},
             {0x209d, "EV_MVOP"},
-            {0x209e, "BG_C05N"},
 
             {0x3000, "CHR_99"},
             {0x3001, "CO01AS"},
@@ -2615,8 +2610,6 @@ namespace R11_Script_Editor.Tokens
             {0x33b0, "EV_CO06A1"},
             {0x33b1, "EV_CO06A2"},
             {0x33b2, "EV_CO06A3"},
-            {0x33b3, "KA2L"},
-            {0x33b4, "KA1L"},
 
             {0x4000, "BGM01"},
             {0x4001, "BGM01NL"},
