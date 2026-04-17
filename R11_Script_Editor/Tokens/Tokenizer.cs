@@ -3803,66 +3803,94 @@ namespace R11_Script_Editor.Tokens
             temp = temp.Replace("é", "≡");
             temp = temp.Replace("ö", "≒");
             var x = Encoding.GetEncoding("shift_jis").GetBytes(temp);
-                
-            for (int i=0; i<x.Length-1; i++)
-                if (x[i] >= 0x80)
+
+            var encoded = new List<byte>();
+            var italic = false;
+
+            for (int i = 0; i < x.Length; i++)
+            {
+                if (x[i] == 0x5C) // \
+                    { italic = !italic; continue; }
+
+                if (italic && x[i] > 0x20 && x[i] < 0x80)
+                {
+                    encoded.Add(0x86);
+                    if (x[i] > 0x4F)
+                    { x[i] += (byte)(0x30); }
+                    else
+                    { x[i] += (byte)(0x2F); }
+                }
+                else if (x[i] >= 0x80)
                 {
                     i++;
                     if (x[i-1] == 0x81 && x[i] == 0xe0) // ≒ -> ö
                         { x[i-1] = 0x86; x[i] = 0x40; }
-                    if (x[i-1] == 0x81 && x[i] == 0xde) // ∇ -> ï
+                    else if (x[i-1] == 0x81 && x[i] == 0xde) // ∇ -> ï
                         { x[i-1] = 0x86; x[i] = 0x43; }
                     else if (x[i-1] == 0x81 && x[i] == 0xdf) // ≡ -> é 
                         { x[i-1] = 0x86; x[i] = 0x44; }
-                    else if (x[i-1] == 0x81 && x[i] == 0x61) // ∥ -> "I"
-                        { x[i-1] = 0x86; x[i] = 0x78; }
-                    else if (x[i-1] == 0x83 && x[i] == 0xB1) // Tau -> "t"
-                        { x[i-1] = 0x86; x[i] = 0xA4; }
-                    else if (x[i-1] == 0x83 && x[i] == 0xA5) // Eta -> "h"
-                        { x[i-1] = 0x86; x[i] = 0x98; }
-                    else if (x[i-1] == 0x83 && x[i] == 0x9F) // Alpha -> "a"
-                        { x[i-1] = 0x86; x[i] = 0x91; }
-                    else if (x[i-1] == 0x81 && x[i] == 0xAB) // ↓ -> "!"
-                        { x[i-1] = 0x86; x[i] = 0x50; }
                     else if (x[i-1] == 0x81 && x[i] == 0x79) // 【 -> "「" 
                         { x[i-1] = 0x85; x[i] = 0xA0; }
                     else if (x[i-1] == 0x81 && x[i] == 0x7A) // 】 -> "」"
                         { x[i-1] = 0x85; x[i] = 0xA1; }
-                    
+                    else if (x[i-1] == 0x81 && (x[i] == 0x75 || x[i] == 0x76)) // break italics at beginning/end of message body
+                        { italic = false; }
+                    encoded.Add(x[i-1]);
                 }
 
-            return x;
+                encoded.Add(x[i]);
+            }
+
+            return encoded.ToArray();
         }
 
         static public string StringDecode(byte[] x)
         {
-            for (int i=0; i<x.Length-1; i++)
+            var decoded = new List<byte>();
+            var italic = false;
+            var nonitalics = 0;
+            for (int i = 0; i < x.Length; i++)
+            {
+                if (x[i] == 0x86 && x[i+1] > 0x4F && x[i+1] < 0xB0)
+                {
+                    i++;
+                    nonitalics = 0;
+                    if (!italic)
+                        { italic = true; decoded.Add(0x5C); } // \
+                    if (x[i] > 0x7F)
+                        { x[i] -= 0x30; }
+                    else
+                        { x[i] -= 0x2F; }
+                    decoded.Add(x[i]);
+                    continue;
+                } // Only place exiting backslashes when needed to not clutter the edit box
+                else if (italic)
+                {
+                    if (x[i] > 0x20 && x[i] < 0x80 || x[i] == 0x81 && (x[i+1] == 0x75 || x[i+1] == 0x76))
+                        { italic = false; decoded.Insert(decoded.Count - nonitalics, 0x5C); } // \
+                    nonitalics++;
+                }
+
                 if (x[i] >= 0x80)
                 {
                     i++;
-                    if (x[i - 1] == 0x86 && x[i] == 0x40) // ö -> ≒
+                    if (x[i-1] == 0x86 && x[i] == 0x40) // ö -> ≒
                         { x[i-1] = 0x81; x[i] = 0xe0; }
                     else if (x[i-1] == 0x86 && x[i] == 0x43) // ï -> ∇
                         { x[i-1] = 0x81; x[i] = 0xde; }
                     else if (x[i-1] == 0x86 && x[i] == 0x44) // é -> ≡
                         { x[i-1] = 0x81; x[i] = 0xdf; }
-                    else if (x[i-1] == 0x86 && x[i] == 0x78) // "I" -> ∥
-                        { x[i-1] = 0x81; x[i] = 0x61; }
-                    else if (x[i-1] == 0x86 && x[i] == 0xA4) // "t" -> Tau
-                        { x[i-1] = 0x83; x[i] = 0xB1; }
-                    else if (x[i-1] == 0x86 && x[i] == 0x98) // "h" -> Eta
-                        { x[i-1] = 0x83; x[i] = 0xA5; }
-                    else if (x[i-1] == 0x86 && x[i] == 0x91) // "a" -> Alpha
-                        { x[i-1] = 0x83; x[i] = 0x9F; }
-                    else if (x[i-1] == 0x86 && x[i] == 0x50) // "!" -> ↓
-                        { x[i-1] = 0x81; x[i] = 0xAB; }
-                    else if (x[i-1] == 0x85 && x[i] == 0xA0) //  "「" -> 【
+                    else if (x[i-1] == 0x85 && x[i] == 0xA0) // "「" ->【
                         { x[i-1] = 0x81; x[i] = 0x79; }
                     else if (x[i-1] == 0x85 && x[i] == 0xA1) // "」" -> 】
                         { x[i-1] = 0x81; x[i] = 0x7A; }
+                    decoded.Add(x[i-1]);
                 }
 
-            var output = Encoding.GetEncoding("shift-jis").GetString(x);
+                decoded.Add(x[i]);
+            }
+
+            var output = Encoding.GetEncoding("shift-jis").GetString(decoded.ToArray());
             output = output.Replace("∇", "ï");
             output = output.Replace("≡", "é");
             output = output.Replace("≒", "ö");
